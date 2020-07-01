@@ -50,7 +50,7 @@
                     <tr>
                         <td>User</td>
                         <td>
-                            {{ objectchange.user|default:objectchange.user_name }}
+                            {{ objectchange.user.last_name|default:objectchange.user_name }}
                         </td>
                     </tr>
                     <tr>
