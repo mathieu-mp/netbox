@@ -690,7 +690,6 @@ class ObjectChange(models.Model):
 
         # Record the user's name and the object's representation as static strings
         if not self.user_name:
-            # self.user_name = self.user.username
             if not (self.user.first_name and self.user.last_name and self.user):
                 self.user_name = self.user.username
             else:
