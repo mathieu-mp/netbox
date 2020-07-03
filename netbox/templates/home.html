@@ -320,7 +320,7 @@
                                 <br />
                                 <small>
                                     <a href="{{ change.get_absolute_url }}" class="text-muted">{{ change.time|date:'SHORT_DATETIME_FORMAT' }}</a>
-                                    <span class="text-muted">-- 
+                                    <span class="text-muted">- 
                                         {% if change.user and change.user.first_name and change.user.last_name %}
                                             {{ change.user.first_name }} {{ change.user.last_name }} (@{{ change.user }})
                                         {% else %}
