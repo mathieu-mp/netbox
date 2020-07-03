@@ -51,7 +51,7 @@
                         <td>User</td>
                         <td>
                             {% if objectchange.user and objectchange.user.first_name and objectchange.user.last_name %}
-                                {{ objectchange.user.first_name }} {{ objectchange.user.last_name }} @({{ objectchange.user }})
+                                {{ objectchange.user.first_name }} {{ objectchange.user.last_name }} (@{{ objectchange.user }})
                             {% else %}
                                 @{{ objectchange.user|default:objectchange.user_name }}
                             {% endif %}
