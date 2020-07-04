@@ -37,6 +37,14 @@ OBJECTCHANGE_TIME = """
 <a href="{{ record.get_absolute_url }}">{{ value|date:"SHORT_DATETIME_FORMAT" }}</a>
 """
 
+OBJECTCHANGE_USER = """
+{% if record.user and record.user.first_name and record.user.last_name %}
+    {{ record.user.first_name }} {{ record.user.last_name }} (@{{ record.user }})
+{% else %}
+    {{ record.user|default:record.user_name }}
+{% endif %}
+"""
+
 OBJECTCHANGE_ACTION = """
 {% if record.action == 'create' %}
     <span class="label label-success">Created</span>
@@ -115,6 +123,9 @@ class ObjectChangeTable(BaseTable):
     time = tables.TemplateColumn(
         template_code=OBJECTCHANGE_TIME
     )
+    user = tables.TemplateColumn(
+        template_code=OBJECTCHANGE_USER
+    )
     action = tables.TemplateColumn(
         template_code=OBJECTCHANGE_ACTION
     )
@@ -132,4 +143,4 @@ class ObjectChangeTable(BaseTable):
 
     class Meta(BaseTable.Meta):
         model = ObjectChange
-        fields = ('time', 'user_name', 'action', 'changed_object_type', 'object_repr', 'request_id')
+        fields = ('time', 'user', 'action', 'changed_object_type', 'object_repr', 'request_id')
