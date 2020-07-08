@@ -8,6 +8,9 @@
         </td>
     {% endif %}
 
+    {# Device #}
+    <td>{{ iface.device.display_name|default:"&mdash;" }}</td>
+
     {# Icon and name #}
     <td class="text-nowrap">
         <span title="{{ iface.get_type_display }}">
